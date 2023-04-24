@@ -20,6 +20,9 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public void add(Department department) {
         try{
+            //Thiếu trường name
+            //Thiếu @transactional trên dầu method create, update, delete
+            //
             Department dp = new Department();
             dp.setCode(department.getCode());
             if(departmentRepository.existsByCode(department.getCode())){
@@ -47,6 +50,8 @@ public class DepartmentServiceImpl implements DepartmentService {
             logger.error(e.getMessage());
         }
     }
+    // Thiếu valdate id truyền vàO CÓ tồn tại hay k cả delete cũng thiếu
+   
     @Override
     public Department update(Department department, Integer id) {
         try{
